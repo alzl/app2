@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>커피노트</title>
+    <style>
+        @font-face {
+            font-family: 'TitleFont';
+            src: url('fonts/title.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'TextFont';
+            src: url('fonts/text.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'TextFont', Arial, sans-serif;
+            background-color: #f5f2e6; /* 연한 배경색으로 수정 */
+        }
+        header {
+            background-image: url('3.jpg'); /* 배경 이미지를 3.jpg로 설정 */
+            padding: 40px 20px; /* 헤더 높이를 조정 */
+            display: flex;
+            justify-content: space-between; /* 로고와 로그인/회원가입 링크를 양쪽 끝에 배치 */
+            align-items: center; /* 세로 중앙 정렬 */
+            color: #f5f2e6; /* 텍스트 색상 변경 */
+        }
+        header .logo {
+            width: 60px; /* 로고 크기 조정 */
+            height: 60px; /* 로고 크기 조정 */
+            background-color: #c4a37f; /* 연한 색상으로 수정 */
+        }
+        header .site-name {
+            text-align: center;
+            position: relative; /* 밑줄을 위한 relative positioning */
+            flex-grow: 1; /* 로고와 로그인/회원가입 링크 사이에 공간을 차지하게 설정 */
+        }
+        header .site-name h1 {
+            margin: 0;
+            font-size: 70px; /* 글씨 크기 조정 */
+            font-weight: bold;
+            color: #4a3b2c; /* 연한 색상으로 수정 */
+            font-family: 'TitleFont', Arial, sans-serif;
+            letter-spacing: 3px; /* 글자 사이 간격을 설정하여 띄움 */
+            position: relative; /* 밑줄을 위한 relative positioning */
+            display: inline-block; /* 텍스트 너비에 맞게 조정 */
+            white-space: pre; /* 공백을 유지하도록 설정 */
+        }
+        header .site-name h1::after {
+            content: '';
+            display: block;
+            width: calc(100% + 60px); /* 밑줄 길이를 텍스트보다 약간 더 길게 설정 */
+            height: 2px;
+            background-color: #4a3b2c; /* 연한 색상으로 수정 */
+            position: absolute;
+            bottom: -0px; /* 밑줄과 텍스트 간의 간격 조정 */
+            left: -30px; /* 중앙 정렬을 위해 조정 */
+        }
+        header .site-name h2 {
+            margin: 0;
+            font-size: 30px; /* 하단 텍스트 크기 조정 */
+            color: #4a3b2c; /* 연한 색상으로 수정 */
+            font-family: 'TextFont', Arial, sans-serif;
+            margin-top: 15px; /* "COFFEE  NOTE"와 밑줄 사이의 간격 설정 */
+            white-space: pre; /* 공백을 유지하도록 설정 */
+        }
+        header .auth-links {
+            display: flex; /* flex를 사용하여 링크들을 수평으로 배치 */
+            gap: 10px; /* 링크 사이의 간격 설정 */
+        }
+        header .auth-links a {
+            text-decoration: none;
+            color: #4a3b2c; /* 텍스트 색상 설정 */
+            font-family: 'TextFont', Arial, sans-serif;
+            font-size: 18px; /* 링크 텍스트 크기 조정 */
+            background-color: #e0d5c3; /* aside와 동일한 배경색 설정 */
+            padding: 8px 16px; /* 배경색과 텍스트 간격을 위한 패딩 조정 */
+            border-radius: 6px; /* 배경색의 테두리를 둥글게 설정 */
+        }
+        header .auth-links a:hover {
+            background-color: #d9d0c6; /* 마우스 오버 시 배경색 변경 */
+        }
+        
+        nav {
+            background-color: #6a4f3b; /* 진한 색상으로 수정 */
+            padding: 15px;
+            text-align: center;
+            color: #f5f2e6; /* 연한 색상으로 수정 */
+            font-family: 'TextFont', Arial, sans-serif;
+        }
+        main {
+            height: 500px;
+            display: flex;
+        }
+        aside {
+            background-color: #e0d5c3; /* 연한 색상으로 수정 */
+            width: 25%;
+            padding: 20px;
+            color: #4a3b2c; /* 연한 색상으로 수정 */
+            font-family: 'TextFont', Arial, sans-serif;
+        }
+        section {
+            background-color: #f5f2e6; /* 연한 색상으로 수정 */
+            width: 75%;
+            padding: 20px;
+            color: #4a3b2c; /* 연한 색상으로 수정 */
+            font-family: 'TextFont', Arial, sans-serif;
+        }
+        footer {
+            background-color: #c4a37f; /* 연한 색상으로 수정 */
+            padding: 15px;
+            text-align: center;
+            color: #f5f2e6; /* 연한 색상으로 수정 */
+            font-family: 'TextFont', Arial, sans-serif;
+        }
+    </style>
+    <script>
+        function openAuthWindow(url) {
+            window.open(url, '_blank', 'width=400,height=400');
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="logo"></div>
+        <div class="site-name">
+            <h1>커 피 노 트</h1> <!-- 글자를 띄워서 표시 -->
+            <h2>COFFEE  NOTE</h2>
+        </div>
+        <div class="auth-links">
+            <a href="#" onclick="openAuthWindow('login.html')">로그인</a>
+            <a href="#" onclick="openAuthWindow('signup.html')">회원가입</a>
+        </div>
+    </header>
+    <nav>
+        Navigation
+    </nav>
+    <main>
+        <aside>
+            Aside
+        </aside>
+        <section>
+            Section
+        </section>
+    </main>
+    <footer>
+        Footer
+    </footer>
+</body>
+</html>
