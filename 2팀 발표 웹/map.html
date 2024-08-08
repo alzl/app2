@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles3.css">
+    <script defer src="script.js"></script>
+    <script defer src="ajax.js"></script>
+    <title>Coffee Note</title>
+</head>
+
+<body>
+    <header>
+
+        <!-- 메인 로고 -->
+         <div id="MainLogoImage">
+            
+            <!-- 메인로고 이미지 예시 -->
+            <img src="https://i.ibb.co/BBdFn1w/image.png" width="60px" height="60px" alt="LogoImage">
+        </div>
+
+
+        <!-- 사이트명 -->
+        <div class="site-name">
+            <a href="CoffeeNote.html"> <!-- 추후 호스팅 및 배포 시 href="https://..." 주소로 변경 -->
+                <h1 id="kor">커 피 노 트</h1>
+            </a>
+            <h2 id="eng">COFFEE  NOTE</h2>
+        </div>
+
+
+        <!-- 로그인 및 회원가입 버튼 -->
+        <div class="headerButtons">
+            <a href="#" id="loginLink">로그인</a>
+            <a href="join.html">회원가입</a>
+        </div>
+
+
+
+        <!-- 로그인 모달 -->
+        <div id="loginModal" class="modal">
+            <div class="modal-content">
+
+                <div class="login-options">
+                    
+                    <!-- 카카오 로그인 버튼 -->
+                    <a href="https://accounts.kakao.com/login/?continue=https%3A%2F%2Fmail.kakao.com#login" class="kakao-login-button">
+                        <img src="https://i.ibb.co/LJh68Rb/image.png" alt="Kakao Icon" class="kakao-icon">
+                        <span>카카오 계정으로 로그인</span>
+                    </a>
+
+                    <!-- 이메일 로그인 -->
+                    <a href="login.html" class="login-option email-login">이메일로 로그인</a>
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+
+    <main>
+
+        <aside style="height: 10%; margin-top: 15%;">
+            <nav>
+                <ul>
+                    <li style="width: 120%;">
+                        <button style="margin-right: 15%; margin-bottom: 400%;" onclick="window.location.href='CoffeeNote.html';">
+                            <b>메인 페이지로 돌아가기</b>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+
+
+        <section style="height: 61vh;">
+            <!-- 카카오 맵 API 로드 -->
+            <div class="map_wrap" style="position: relative;">
+                <div id="map" style="width:100%; height:56.5vh; border-radius: 25px;">
+
+                    <!-- 내 위치 찾기 버튼 -->
+                    <button id="my_location_button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="getCurrentPosBtn()" style="position: absolute; z-index: 2; background: white; border: none; border-radius: 30px; margin-left: 80%; margin-top: 10px;">
+                        <img src="https://i.ibb.co/jRvDfvD/image.png" width="50px" height="47px">
+                    </button>
+
+                </div>
+            </div>
+            
+            
+            <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=27cd33198e684f568c591024de2d3482"></script>
+            <script>
+                var container = document.getElementById('map');
+                var options = {
+                    center: new kakao.maps.LatLng(37.59644736252756, 127.08481049529072),
+                    level: 1
+                };
+
+                var map = new kakao.maps.Map(container, options);
+
+
+                function locationLoadSuccess(pos){
+                    // 현재 위치 받아오기
+                    var currentPos = new kakao.maps.LatLng(pos.coords.latitude,pos.coords.longitude);
+
+                    // 지도 이동(기존 위치와 가깝다면 부드럽게 이동)
+                    map.panTo(currentPos);
+
+                    // 마커 생성
+                    var marker = new kakao.maps.Marker({
+                        position: currentPos
+                    });
+
+                    // 기존에 마커가 있다면 제거
+                    marker.setMap(null);
+                    marker.setMap(map);
+                };
+
+                function locationLoadError(pos){
+                    alert('위지 권한을 허용해주세요.');
+                };
+
+                // 위치 가져오기 버튼 클릭시
+                function getCurrentPosBtn(){
+                    navigator.geolocation.getCurrentPosition(locationLoadSuccess,locationLoadError);
+                };
+            </script>
+        </section>
+
+
+    </main>
+
+
+
+    <footer>
+        <b>Copyright 2024 CoffeeNote Co. All Rights Reserved.</b>
+        <p>Designed by TEAM. NJK</p >
+    </footer>
+
+
+</body>
+</html>

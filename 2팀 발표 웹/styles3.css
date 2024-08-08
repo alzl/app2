@@ -1,0 +1,414 @@
+/* 메인 화면 스타일시트 */
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* 박스 모델을 표준으로 설정 */
+}
+
+
+/* 헤더 영역 ------------------------------------------------------------------------------ */
+
+
+/* 헤더 영역 타이틀 폰트 지정 */
+@font-face {
+    font-family: 'TitleFont';
+    src: url('fonts/title.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TextFont';
+    src: url('fonts/text.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+header {
+    background-image: url('https://i.ibb.co/bNDdqyZ/3.jpg'); /* 헤더 배경 이미지 */
+    padding: 60px 20px; /* 헤더 높이를 조정 */
+    display: flex;
+    justify-content: space-between; /* 로고와 로그인/회원가입 링크를 양쪽 끝에 배치 */
+    align-items: center; /* 세로 중앙 정렬 */
+    flex-wrap: wrap; /* 반응형 디자인을 위해 추가 */
+    position: relative;
+}
+
+
+/* 로고 이미지 영역에 대한 부분 */
+#MainLogoImage {
+    width: 60px; /* 로고 크기 조정 */
+    height: 60px; /* 로고 크기 조정 */
+    background-color: #c4a37f; /* 연한 색상으로 수정 */
+    margin-left: 20px; /* 우측으로 이동 */
+}
+
+
+#MainLogoImage > img {
+    width: 100%;
+    height: 100%;
+}
+
+
+header .site-name {
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+header .site-name h1 {
+    margin: 0;
+    font-size: 60px; /* 글씨 크기 조정 */
+    font-weight: bold;
+    color: #4a3b2c; /* 연한 색상으로 수정 */
+    font-family: 'TitleFont', Arial, sans-serif;
+    letter-spacing: 3px; /* 글자 사이 간격을 설정하여 띄움 */
+    position: relative; /* 밑줄을 위한 relative positioning */
+    display: inline-block; /* 텍스트 너비에 맞게 조정 */
+    white-space: pre; /* 공백을 유지하도록 설정 */
+}
+
+
+
+header .site-name h1::after {
+    content: '';
+    display: block;
+    width: calc(100% + 60px); /* 밑줄 길이를 텍스트보다 약간 더 길게 설정 */
+    height: 2px;
+    background-color: #4a3b2c; /* 연한 색상으로 수정 */
+    position: absolute;
+    bottom: 0px; /* 밑줄과 텍스트 간의 간격 조정 */
+    left: -30px; /* 중앙 정렬을 위해 조정 */
+}
+
+
+header .site-name h2 {
+    margin: 0;
+    font-size: 30px; /* 하단 텍스트 크기 조정 */
+    color: #4a3b2c; /* 연한 색상으로 수정 */
+    font-family: 'TextFont', Arial, sans-serif;
+    margin-top: 15px; /* "COFFEE  NOTE"와 밑줄 사이의 간격 설정 */
+    white-space: pre; /* 공백을 유지하도록 설정 */
+}
+
+
+.headerButtons {
+    display: flex; /* flex를 사용하여 링크들을 수평으로 배치 */
+    gap: 20px; /* 링크 사이의 간격 설정 */
+}
+
+
+.headerButtons a {
+    text-decoration: none;
+    color: #4a3b2c; /* 텍스트 색상 설정 */
+    font-family: 'TextFont', Arial, sans-serif;
+    font-size: 18px; /* 링크 텍스트 크기 조정 */
+    background-color: #e0d5c3; /* aside와 동일한 배경색 설정 */
+    padding: 8px 16px; /* 배경색과 텍스트 간격을 위한 패딩 조정 */
+    border-radius: 6px; /* 배경색의 테두리를 둥글게 설정 */
+}
+
+
+.headerButtons a:hover {
+    background-color: #bbb2a9; /* 마우스 오버 시 배경색 변경 */
+}
+
+
+
+
+/* 헤더 영역 반응형 디자인 */
+
+/* 테블릿 비율 */
+@media (max-width: 768px) {
+    header {
+        padding: 40px 10px; /* 패딩 조정 */
+    }
+
+    #MainLogoImage {
+        width: 40px; /* 모바일에서 로고 영역 크기 조정 */
+        height: 40px;
+        margin-left: 10px; /* 모바일에서 로고 이동 */
+    }
+
+    #MainLogoImage > img {
+        width: 100%;
+        height: 100%;
+    }
+    
+
+    .headerButtons a {
+        font-size: 16px; /* 링크 텍스트 크기 조정 */
+        padding: 6px 12px; /* 패딩 조정 */
+    }
+
+    header .site-name {
+        left: 50%; /* 중앙으로 이동 */
+        transform: translateX(-50%); /* 이동 후 중앙 정렬 */
+    }
+
+    header .site-name h1 {
+        font-size: 40px; /* 모바일에서 텍스트 크기 조정 */
+    }
+
+    header .site-name h2 {
+        font-size: 20px; /* 모바일에서 텍스트 크기 조정 */
+        margin-top: 10px; /* 간격 조정 */
+    }
+}
+
+
+/* 스마트폰 비율 */
+@media (max-width: 700px) {
+    header .site-name {
+        left: 35%; /* 더 왼쪽으로 이동 */
+        transform: translateX(-35%); /* 이동 후 중앙 정렬 */
+    }
+
+    header .site-name h1 {
+        font-size: 30px; /* 텍스트 크기 대폭 축소 */
+    }
+
+    header .site-name h2 {
+        font-size: 16px; /* 텍스트 크기 대폭 축소 */
+        margin-top: 8px; /* 간격 조정 */
+    }
+
+
+
+    .headerButtons a {
+        font-size: 13px; /* 링크 텍스트 크기 조정 */
+        padding: 6px 12px; /* 패딩 조정 */
+    }
+
+
+    
+    
+}
+
+
+
+
+
+/* 로그인 모달 영역 ------------------------------------------------------------------------- */
+
+
+/* 로그인 모달 애니메이션 */
+@keyframes slideDown {
+    from {
+        transform: translateY(-50%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+@keyframes slideUp {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-50%);
+        opacity: 0;
+    }
+}
+
+
+
+
+/* 모달 스타일 */
+.modal {
+    display: none; /* 기본적으로 숨김 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* 백그라운드 어두운 효과 */
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: opacity 0.3s ease;
+}
+
+
+.modal-content {
+    /* display: flex; */
+    flex-direction: column;
+    align-items: center; /* 수평 중앙 정렬 */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 400px; /* 모달의 최대 너비 조정 */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    animation: slideDown 0.3s ease;
+    text-align: center;
+}
+
+
+/* 카카오 로그인 버튼 스타일 */
+.kakao-login-button {
+    display: flex;
+    align-items: center; /* 수직 중앙 정렬 */
+    justify-content: center; /* 수평 중앙 정렬 */
+    background-color: #f7e300; /* 카카오 배경 */
+    color: #4a3b2c; /* 텍스트 색상 */
+    font-family: 'TextFont', Arial, sans-serif;
+    font-size: 18px; /* 텍스트 크기 */
+    
+    height: 50px; /* 버튼 높이 */
+    border-radius: 5px; /* 둥근 모서리 */
+    text-decoration: none; /* 링크 기본 스타일 제거 */
+    padding: 0 15px; /* 좌우 패딩 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* 그림자 추가 */
+    overflow: hidden; /* 콘텐츠가 넘치지 않도록 설정 */
+    transition: background-color 0.3s ease; /* 배경색 변화 애니메이션 */
+}
+
+
+.kakao-login-button:hover {
+    transition: filter 0.3s ease; /* 색상 변화가 부드럽게 */
+    filter: brightness(80%); /* 이미지 밝기를 80%로 조절하여 어두워 보이게 */
+}
+
+
+.kakao-icon {
+    width: 30px; /* 아이콘 크기 조정 */
+    height: auto; /* 비율 유지 */
+    margin-right: 10px; /* 텍스트와 아이콘 사이 간격 조정 */
+}
+
+
+.kakao-login-button span {
+    flex-grow: 1; /* 텍스트가 버튼 내에서 자동으로 중앙 정렬되도록 설정 */
+    text-align: center; /* 텍스트 중앙 정렬 */
+}
+
+
+.email-login {
+    display: block;
+    padding: 10px;
+    margin-top: 20px; /* 카카오 이미지와 간격 조정 */
+    border-radius: 5px;
+    text-decoration: none;
+    color: #4a3b2c; /* 텍스트 색상 */
+    font-family: 'TextFont', Arial, sans-serif;
+    font-size: 18px;
+    background-color: transparent; /* 배경색 제거 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* 그림자 추가 */
+    transition: box-shadow 0.3s ease; /* 그림자 애니메이션 부드럽게 설정 */
+}
+
+
+.email-login:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8); /* 마우스 오버 시 그림자 강화 */
+}
+
+
+
+
+
+
+/* BODY 영역 ------------------------------------------------------------------------- */
+
+
+html, body {
+    height: 100%; /* 전체 페이지 높이를 100%로 설정 */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex-grow: 1; /* main 영역이 남은 공간을 차지하도록 설정 */
+    padding: 20px;
+    background-color: #fff7e6;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start; /* main 영역의 콘텐츠를 위쪽에 정렬 */
+}
+
+nav {
+    padding: 15px;
+    text-align: center;
+    color: #f5f2e6; /* 연한 색상으로 수정 */
+    font-family: 'TextFont', Arial, sans-serif;
+}
+
+aside {
+    margin-left: 12%;
+    background-color: #f7de9c;
+    padding: 20px;
+    width: 200px;
+    height: 87%;
+    flex-shrink: 0;
+    border-radius: 20px;
+}
+
+aside nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+aside nav ul li {
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: center; /* 버튼이 수직 중앙에 위치하도록 수정 */
+}
+
+aside nav ul li button {
+    white-space: nowrap; /* 줄바꿈 방지 */
+    width: 100%;
+    padding: 10px;
+    background-color: #d1aa6f;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+}
+aside nav ul li button:hover {
+    background-color: #83612fc2;
+}
+
+section {
+    background-color: #ffe88a; /* 연한 색상으로 수정 */
+    width: 60%;
+    height: 80%;
+    margin-left: 3%;
+    padding: 20px;
+    margin-top: 1.5%;
+    color: #4a3b2c; /* 연한 색상으로 수정 */
+    font-family: 'TextFont', Arial, sans-serif;
+    border-radius: 25px;
+}
+
+footer {
+    background-color: #99743d;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position : fixed;
+    bottom : 0;
+    width: 100%;
+    flex-shrink: 0;
+}
+
+footer p {
+    margin-top: 10px;
+}
+

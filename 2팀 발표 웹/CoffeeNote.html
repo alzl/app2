@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles3.css">
+    <script defer src="script.js"></script>
+    <title>Coffee Note</title>
+</head>
+
+<body>
+    <header>
+
+        <!-- 메인 로고 -->
+         <div id="MainLogoImage">
+            
+            <!-- 메인로고 이미지 예시 -->
+            <img src="https://i.ibb.co/BBdFn1w/image.png" width="60px" height="60px" alt="LogoImage">
+        </div>
+
+
+        <!-- 사이트명 -->
+        <div class="site-name">
+            <a href="CoffeeNote.html"> <!-- 추후 호스팅 및 배포 시 href="https://..." 주소로 변경 -->
+                <h1 id="kor">커 피 노 트</h1>
+            </a>
+            <h2 id="eng">COFFEE  NOTE</h2>
+        </div>
+
+
+        <!-- 로그인 및 회원가입 버튼 -->
+        <div class="headerButtons">
+            <a href="#" id="loginLink">로그인</a>
+            <a href="join.html">회원가입</a>
+        </div>
+
+
+
+        <!-- 로그인 모달 -->
+        <div id="loginModal" class="modal">
+            <div class="modal-content">
+
+                <div class="login-options">
+                    
+                    <!-- 카카오 로그인 버튼 -->
+                    <a href="https://accounts.kakao.com/login/?continue=https%3A%2F%2Fmail.kakao.com#login" class="kakao-login-button">
+                        <img src="https://i.ibb.co/LJh68Rb/image.png" alt="Kakao Icon" class="kakao-icon">
+                        <span>카카오 계정으로 로그인</span>
+                    </a>
+
+                    <!-- 이메일 로그인 -->
+                    <a href="login.html" class="login-option email-login">이메일로 로그인</a>
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+
+    <main>
+
+        <aside>
+            <nav>
+                <ul>
+                    <li><button onclick="showSection('main')"><b>메인 화면</b></button></li>
+                    <li><button onclick="showSection('notice')"><b>공지사항</b></button></li>
+                    <li><button onclick="window.location.href='map.html';"><b>지도 찾기</b></button></li>
+                    <li><button onclick="showSection('popularCafe')"><b>인기 카페</b></button></li>
+                    <li><button onclick="showSection('popularBookmark')"><b>인기 북마크</b></button></li>
+                    <li><button onclick="showSection('storeGuide')"><b>입점 안내</b></button></li>
+                    <li><button onclick="showSection('intro')"><b>회사 안내</b></button></li>
+                    <li><button onclick="showSection('terms')"><b>이용 약관</b></button></li>
+                    <li><button onclick="showSection('privacy')"><b>개인정보 처리방침</b></button></li>
+                </ul>
+            </nav>
+        </aside>
+
+
+
+        <section id="main" class="content-section">
+            <div style="text-align: center; margin-top: 240px;">
+                <h2>사이트 방문 시 처음으로 표시되는 페이지 입니다.</h2>
+                <a href="CoffeeNote.html">메인 페이지로 돌아가기</a>
+            </div>
+        </section>
+
+
+        
+
+        <!-- 
+        <section>
+            // 카카오 맵 API 로드
+            <div id="map" style="width:100%; height:460px;"></div>
+            
+            <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=27cd33198e684f568c591024de2d3482"></script>
+            <script>
+                var container = document.getElementById('map');
+                var options = {
+                    center: new kakao.maps.LatLng(37.59644736252756, 127.08481049529072),
+                    level: 3
+                };
+
+                var map = new kakao.maps.Map(container, options);
+            </script>
+        </section> 
+        -->
+
+
+    </main>
+
+
+
+    <footer>
+        <b>Copyright 2024 CoffeeNote Co. All Rights Reserved.</b>
+        <p>Designed by TEAM. NJK</p >
+    </footer>
+
+
+
+
+
+
+
+    
+
+
+</body>
+</html>

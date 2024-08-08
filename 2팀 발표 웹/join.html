@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="join.css">
+    <script defer src="register.js"></script> <!-- JavaScript 파일 이름은 변경하지 않았습니다 -->
+    <title>회원가입 페이지</title>
+</head>
+<body>
+    <!-- 사이트명 -->
+    <div class="site-name">
+        <a href="CoffeeNote.html">
+            <h1 id="kor">커 피 노 트</h1>
+            <h2 id="eng">COFFEE  NOTE</h2>
+        </a>
+        
+    </div>
+
+    <div class="register-container">
+        <form id="registerForm">
+            <div class="input-group">
+                <input type="text" id="email" name="email" placeholder="아이디(이메일)">
+                <div id="emailError" class="error-message"></div>
+            </div>
+            <div class="input-group">
+                <input type="password" id="password" name="password" placeholder="비밀번호">
+                <div id="passwordError" class="error-message"></div>
+            </div>
+            <div class="input-group">
+                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="비밀번호 확인">
+                <div id="confirmPasswordError" class="error-message"></div>
+            </div>
+            <button type="submit">회원가입</button>
+        </form>
+    </div>
+</body>
+</html>
