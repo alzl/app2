@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="script.js"></script>
+    <script defer src="ajax.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles3.css">
+    <title>Map</title>
+</head>
+<body>
+    <main>
+        <section>
+            <!-- 카카오 맵 API 로드 -->
+            <div class="map_wrap" style="position: relative;">
+                <div id="map" style="width:100%; height:72vh; border-radius: 25px;">
+
+                    <!-- 내 위치 찾기 버튼 -->
+                    <button id="my_location_button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="getCurrentPosBtn()" style="position: absolute; z-index: 2; background: white; border: none; border-radius: 30px; margin-left: 80%; margin-top: 10px;">
+                        <img src="https://i.ibb.co/jRvDfvD/image.png" width="50px" height="47px">
+                    </button>
+
+                </div>
+            </div>
+            
+            
+            <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=27cd33198e684f568c591024de2d3482"></script>
+            <script>
+                var container = document.getElementById('map');
+                var options = {
+                    center: new kakao.maps.LatLng(37.59644736252756, 127.08481049529072),
+                    level: 1
+                };
+
+                var map = new kakao.maps.Map(container, options);
+
+
+                function locationLoadSuccess(pos){
+                    // 현재 위치 받아오기
+                    var currentPos = new kakao.maps.LatLng(pos.coords.latitude,pos.coords.longitude);
+
+                    // 지도 이동(기존 위치와 가깝다면 부드럽게 이동)
+                    map.panTo(currentPos);
+
+                    // 마커 생성
+                    var marker = new kakao.maps.Marker({
+                        position: currentPos
+                    });
+
+                    // 기존에 마커가 있다면 제거
+                    marker.setMap(null);
+                    marker.setMap(map);
+                };
+
+                function locationLoadError(pos){
+                    alert('위지 권한을 허용해주세요.');
+                };
+
+                // 위치 가져오기 버튼 클릭시
+                function getCurrentPosBtn(){
+                    navigator.geolocation.getCurrentPosition(locationLoadSuccess,locationLoadError);
+                };
+            </script>
+        </section>
+    </main>
+</body>
+</html>
