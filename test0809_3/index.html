@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixed Header and Footer</title>
+    <link rel="stylesheet" href="resource/indexStyles.css"> <!-- 스타일시트를 링크로 연결 -->
+</head>
+<body>
+    <!-- 로그인 모달 -->
+    <div id="loginModal" style="display:none;">
+        <div class="modal-content">
+            <div id="login-options">
+                <!-- 카카오 로그인 버튼 -->
+                <button id="kakao-login">
+                    <img src="https://i.ibb.co/LJh68Rb/image.png" alt="Kakao Icon" class="kakao-icon">
+                    <span>카카오 계정으로 로그인</span>
+                </button>
+    
+                <!-- 이메일 로그인 -->
+                <button id="email-login" onclick="showSection('sign-up')">이메일로 로그인</button>
+            </div>
+        </div>
+    </div>
+    <!--실제 구현부-->
+    <div id="header">
+        <!--메인로고-->
+        <div id="logo" onclick="showSection('main')" style="cursor:pointer;"> 
+            <img src="https://i.ibb.co/BBdFn1w/image.png" width="60px" height="60px" alt="LogoImage">
+        </div>
+        <!--타이틀-->
+        <div id="title">
+            <!-- 추후 호스팅 및 배포 시 href="https://..." 주소로 변경 -->
+            <h1 onclick="showSection('main')" style="cursor:pointer;">커 피 노 트</h1>
+            <h2 >COFFEE  NOTE</h2>
+        </div>
+        <!--로그인, 회원가입 버튼-->
+        <div id="account">
+            <button id="account_btn1" onclick="showLoginModal()">로그인</button>
+            <button id="account_btn2" onclick="showSection('sign-up')">회원가입</button>
+        </div>        
+    </div>
+    <div id="content">
+        <div id="aside">
+            <!-- 버튼 영역 -->
+            <div id="aside-buttons">
+                <button class="aside-button" onclick="showSection('main')">메인화면</button>
+                <button class="aside-button" onclick="showSection('notice')">공지사항</button>
+                <button class="aside-button" onclick="window.location.href='map.html'">지도찾기</button>
+            </div>
+            <!-- 인기순위 리스트 영역 -->
+            <div id="aside-cafe-ranking"></div>
+            <div id="aside-bookmark-ranking"></div>
+        </div>
+        <div id="section">
+            <!-- 선택된 섹션의 내용이 이곳에 로드됩니다 -->
+        </div>
+    </div>
+    <div id="footer">
+        <p>Copyright 2024 CoffeeNote Co. All Rights Reserved.</p>
+        <p>Designed by TEAM. NJK</p>
+        <div>
+            <span onclick="showSection('store-guide')">입점안내</span> |
+            <span onclick="showSection('company-info')">회사안내</span> |
+            <span onclick="showSection('terms')">이용약관</span>
+        </div>
+    </div>
+    <!-- script.js 파일을 링크 -->
+    <script src="resource/indexScript.js"></script>
+</body>
+</html>

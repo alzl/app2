@@ -1,0 +1,403 @@
+/*
+    *각 영역별로 여러줄 주석으로 표시했으니 확인
+*/
+/*
+    *전체 설정 및, header, footer 설정
+*/
+/*지도*/
+#map {
+    width: 100%; 
+    height: 100vh;
+}
+
+#my_location_button {
+    position: fixed; /* 우측 하단에 고정하기 위해 fixed 사용 */
+    z-index: 2; 
+    background: none; 
+    border: none; 
+    right: 20px; /* 화면 우측에서 20px 떨어진 위치 */
+    bottom: 20px; /* 화면 하단에서 20px 떨어진 위치 */
+}
+
+#home_button {
+    position: fixed; /* 우측 하단에 고정하기 위해 fixed 사용 */
+    z-index: 2; 
+    background: none; 
+    border: none; 
+    right: 15px; /* 화면 우측에서 20px 떨어진 위치 */
+    bottom: 100px; /* 화면 하단에서 20px 떨어진 위치 */
+}
+
+.overlay-image {
+    box-shadow: 5px 5px 5px #000; 
+    border-radius: 50%;
+}
+
+/* 헤더 영역 타이틀 폰트 지정 */
+@font-face {
+    font-family: 'TitleFont';
+    src: url('../fonts/title.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+/* 헤더 이외의 전체 영역 폰트 지정 */
+@font-face {
+    font-family: 'TextFont';
+    src: url('../   fonts/text.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+body, html {
+    margin: 0; /* 페이지의 기본 여백을 제거 */
+    padding: 0; /* 페이지의 기본 패딩을 제거 */
+    height: 100%; /* 페이지의 높이를 전체 화면 높이로 설정 */
+    overflow: hidden; /* 전체 페이지에서 스크롤을 숨김 */
+    font-family: 'TextFont', sans-serif; /* 일반 텍스트에 폰트 적용 */
+}
+
+#header, #footer {
+    height: 200px; /* 헤더와 푸터의 높이를 200px로 설정 */
+    text-align: center; /* 텍스트를 중앙 정렬 */
+    position: fixed; /* 헤더와 푸터를 고정 위치로 설정 */
+    width: 100%; /* 헤더와 푸터의 너비를 전체 화면 너비로 설정 */
+    left: 0; /* 헤더와 푸터를 왼쪽 끝에 맞춤 */
+}
+
+#header {
+    background-image: url('https://i.ibb.co/bNDdqyZ/3.jpg'); /* 헤더 배경 이미지 */
+    top: 0; /* 헤더를 화면 상단에 고정 */
+    height: 200px; /* 헤더의 높이를 200px로 설정 */
+    display: flex; /* 헤더 내부를 flexbox로 설정 */
+    justify-content: space-between; /* 요소들을 좌우로 분산 배치 */
+    align-items: center; /* 요소들을 수직으로 중앙 정렬 */
+    padding: 0 20px; /* 좌우 여백을 추가하여 요소들을 여유 있게 배치 */
+    box-sizing: border-box; /* 박스 크기 계산 방식을 border-box로 설정 */
+    font-family: 'TitleFont', sans-serif; /* 타이틀에 폰트 적용 */
+}
+
+#footer {
+    background-color: rgb(156, 123, 33); /* 푸터의 배경색 */
+    bottom: 0; /* 푸터를 화면 하단에 고정 */
+    height: 100px; /* 푸터의 높이를 100px로 설정 */
+    color: white; /* 푸터 텍스트 색상 */
+    text-align: center; /* 텍스트를 중앙 정렬 */
+    padding: 20px; /* 내부 여백을 추가하여 텍스트가 여유 있게 배치되도록 설정 */
+    box-sizing: border-box; /* 패딩을 포함한 전체 크기를 계산 */
+}
+/* 푸터 내부의 <p> 태그 스타일 */
+#footer p {
+    margin: 0; /* p 태그의 기본 마진을 제거 */
+    line-height: 1.5; /* p 태그의 줄 간격을 설정 (필요에 따라 조정 가능) */
+}
+/* 푸터 내부의 <span> 태그 스타일 -- 별도 링크 텍스트를 달기 위해서 */
+#footer div span{
+    cursor: pointer; /* 클릭 가능한 포인터 표시 */
+}
+
+/*
+    *콘텐츠(aside, section) 페이지 설정
+*/
+#content {
+    background-color: rgba(255, 248, 230); /* 콘텐츠의 배경색 */
+    padding-top: 200px; /* 내용 부분의 상단 여백을 헤더 높이만큼 설정 */
+    padding-bottom: 200px; /* 내용 부분의 하단 여백을 푸터 높이만큼 설정 */
+    height: calc(100% - 300px); /* 내용 부분의 높이를 전체 화면 높이에서 헤더와 푸터의 높이를 뺀 값으로 설정 */
+    overflow-y: auto; /* 내용 부분에 세로 스크롤을 추가 */
+    overflow-x: hidden; /* content의 가로 스크롤바를 표시하지 않음 */
+    display: flex; /* Flexbox 레이아웃 설정 */
+    justify-content: center; /* 자식 요소를 가로 중앙 정렬 */
+    align-items: flex-start; /* 자식 요소를 위쪽 정렬 */
+}
+
+#aside, #section {
+    background-color: rgb(255, 224, 147); /* aside, section의 배경색 */
+    margin: 20px; /* aside, section의 마진 여백을 20px로 설정 */
+    border-radius: 8px; /* 동글동글 */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* 그림자 */
+    min-height: auto; /* 각 요소의 최소 높이를 자동으로 설정 */
+    height: calc(100% - 60px); /* aside의 높이를 content의 높이에서 마진을 뺀 값으로 설정 */
+}
+
+#aside {
+    float: left; /* aside를 왼쪽에 정렬 */
+    padding: 10px; /* aside의 내부 여백을 10px로 설정 */
+    display: flex; /* flexbox로 설정 */
+    flex-direction: column; /* 세로 정렬 */
+    width: 300px; /* aside의 너비를 고정 (적절히 조정 가능) */
+    overflow-y: auto; /* 필요 시 세로 스크롤 가능 */
+    flex-shrink: 0; /* aside의 크기가 줄어들지 않도록 설정 */
+}
+/*aside-buttons는 버튼의 집합을 감싼 div이고
+버튼의 상세 설정은 더 아래에 정리함*/
+#aside-buttons {
+    white-space: nowrap; /*버튼들 줄바꿈 방지*/
+    margin-bottom: 10px; /* 버튼 영역 아래 여백 추가 */
+    flex-grow: 0; /* 버튼 영역은 기본 크기를 유지 */
+}
+/*
+    *aside안의 인기 순위 관련 설정
+*/
+#aside-cafe-ranking,
+#aside-bookmark-ranking {
+    background-color: rgb(245, 224, 147); /* 리스트 영역의 배경색 */
+    padding: 10px; /* 리스트 영역의 내부 여백 */
+    border-radius: 8px; /* 모서리를 둥글게 설정 */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
+    flex-grow: 0; /* 리스트 영역은 기본 크기를 유지 */
+    margin-bottom: 10px; /* 리스트 간의 여백 추가 */
+}
+#aside-cafe-ranking{
+    margin-bottom: 10px; /* 리스트 간의 여백 추가 */
+}
+#aside-bookmark-ranking {
+    /*margin-top: auto;*/ /* 마지막 리스트 영역을 아래로 밀기 */
+}
+#aside-cafe-ranking ul,
+#aside-bookmark-ranking ul {
+    list-style-type: none; /* 리스트의 불릿(온점) 제거 */
+    padding-left: 0; /* 기본 패딩 제거 */
+    margin: 0; /* 기본 마진 제거 */
+    overflow-y: auto; /* 리스트가 길어지면 스크롤 가능하도록 설정 */
+    max-height: 200px; /* 리스트 최대 높이 설정 (적절히 조절 가능) */
+}
+/*
+    *인기 리스트의 각 요소(카페, 북마크 등)
+*/
+#aside-cafe-ranking li,
+#aside-bookmark-ranking li {
+    display: flex; /* flexbox를 사용하여 아이템 정렬 */
+    align-items: center; /* 수직 정렬 */
+    background-color: #d4b894; /* 리스트 항목 배경색 */
+    margin-bottom: 10px; /* 항목 간의 간격 */
+    padding: 10px; /* 내부 여백 */
+    border-radius: 8px; /* 둥근 모서리 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+}
+.rank {
+    font-size: 1.5em; /* 순위 번호 크기 */
+    font-weight: bold; /* 순위 번호 굵게 */
+    margin-right: 15px; /* 오른쪽 여백 */
+}
+.cafe-icon {
+    width: 40px; /* 아이콘 크기 */
+    height: 40px;
+    margin-right: 15px; /* 오른쪽 여백 */
+}
+.cafe-info {
+    display: flex;
+    flex-direction: column; /* 이름과 주소를 세로로 배치 */
+}
+.cafe-name {
+    font-weight: bold; /* 카페 이름을 굵게 */
+}
+.cafe-address {
+    font-size: 0.9em; /* 주소 글씨 크기를 조금 작게 */
+    color: #555; /* 주소 색상 변경 */
+}
+.bookmark-description { /*북마크 상세설명...*/
+    font-size: 0.9em; /* 설명 글씨 크기를 조금 작게 */
+    color: #555; /* 설명 텍스트 색상 변경 */
+}
+
+/*
+    *페이지들을 보일 section 페이지 설정
+*/
+#section {
+    flex-basis: 1000px; /* flexbox 레이아웃에서 section의 기본 너비 설정 */
+    max-width: 1000px; /* section의 최대 너비를 1000px로 설정 */
+    /*min-width: 300px;*/ /* section의 최소 너비를 300px로 설정 */
+    min-height: 300px; /* section의 최소 높이를 300px로 설정 */
+    padding: 10px; /* section의 내부 여백을 10px로 설정 */
+    overflow: auto; /* section에 스크롤을 추가 */
+}
+/*
+    *반응형 페이지 설정 (페이지의 길이)
+*/
+/* 페이지의 전체 길이가 500px 이하가 되면 더 이상 콘텐츠를 가리지 않고 페이지 자체가 잘리게 하기 위함 */
+@media (max-height: 500px) {
+    #header {
+        position: relative; /* 고정 위치 해제 */
+        height: 200px; /* 헤더의 높이를 고정 */
+        top: 0; /* 화면 상단에 고정 */
+        left: 0;
+        width: 100%;
+    }
+
+    #footer {
+        height: 100px; /* 푸터의 높이를 고정 */
+        position: relative; /* 고정 위치 해제 */
+        bottom: 0; /* 화면 하단에 고정 */
+        left: 0;
+        width: 100%;
+    }
+
+    #content {
+        position: relative; /* 고정 위치 해제 */
+        height: 200px; /* 콘텐츠의 높이를 고정 */
+        overflow-y: auto; /* 세로 스크롤을 허용 */
+        padding-top: 0px; /* 헤더의 높이만큼 상단 여백을 설정 */
+        padding-bottom: 0px; /* 푸터의 높이만큼 하단 여백을 설정 */
+    }
+
+    body, html {
+        height: 500px; /* 페이지 전체의 높이를 500px로 고정 */
+        /*overflow: hidden;*/ /* 전체 페이지의 스크롤을 숨김 */
+        overflow: auto; /* 전체 페이지의 스크롤을 보인다 */
+    }
+}
+/*
+    *header 내부의 요소 설정
+*/
+#logo, #title, #account {
+    line-height: normal; /* 헤더 내부 div의 line-height를 초기화 */
+}
+#logo {
+    flex: 1; /* 좌측 정렬 */
+    text-align: left; /* 텍스트를 왼쪽 정렬 */
+}
+#title{
+    flex: 1; /* div를 중앙 정렬 */
+    text-align: center; /* 텍스트를 중앙 정렬 */
+    color: #4a3b2c; /* 연한 색상으로 수정 */
+}
+#title h1 {
+    margin: 0px;
+    font-size: 60px; /* 글씨 크기 조정 */
+    font-weight: bold;
+    font-family: 'TitleFont', Arial, sans-serif;
+    letter-spacing: 3px; /* 글자 사이 간격을 설정하여 띄움 */
+    position: relative; /* 밑줄을 위한 relative positioning */
+    display: inline-block; /* 텍스트 너비에 맞게 조정 */
+    white-space: pre; /* 공백을 유지하도록 설정 */
+}
+/*커피노트 밑에 검은색 선을 추가하기 위해서, 
+after로 추가하는 이유는 커피노트의 글자 길이보다 선이 더 길기 때문*/
+#title h1::after { 
+    content: ''; /* 내용 없음 */
+    display: block;
+    width: 120%; /* h1 내용보다 더 넓게 설정 */
+    height: 1.5px; /* 선의 두께 */
+    background-color: black; /* 선의 색상 */
+    position: relative;
+    left: -10%; /* 왼쪽으로 이동하여 중앙 정렬 효과 */
+    top: 5px; /* 텍스트 아래로 약간의 간격 추가 */
+}
+#account {
+    flex: 1; /* 우측 정렬 */
+    text-align: right; /* 텍스트를 오른쪽 정렬 */
+}
+/*
+    *버튼(aside, header 안의 버튼들... 설정)
+    *아직 인기순위에 대한 버튼은 세부 설정 안했음
+    *li태그로 감싸서 버튼태그는 아닙니다
+*/
+button {
+    font-family: 'TextFont', sans-serif; /* 일반 텍스트에 폰트 적용 */
+    border: none; /* 버튼의 테두리 제거 */
+    border-radius: 15px; /* 버튼의 각을 둥글게 설정 (15px은 예시) */
+    padding: 10px 20px; /* 버튼의 내부 여백을 설정하여 버튼 크기를 조정 */
+    color: #333; /* 버튼의 글자색 설정 (예시) */
+    cursor: pointer; /* 마우스를 올렸을 때 커서를 포인터로 변경 */
+}
+/*aside의 버튼 (메뉴)*/
+.aside-button {
+    background-color: rgb(255, 207, 86); /* 버튼의 배경색 */
+}
+.aside-button:hover {
+    background-color: rgb(255, 188, 64); /* hover 시 배경색 변경 */
+}
+/*header의 버튼 (로그인)*/
+#header button {
+    background-color: rgb(209, 199, 169); /* 버튼의 배경색 */
+}
+#header button:hover {
+    background-color: rgb(202, 190, 151); /* hover 시 배경색 변경 */
+}
+/*
+    *로그인 버튼 누를 시 모달팝업 설정
+*/
+/* 로그인 모달 전체를 덮는 배경 */
+#loginModal {
+    position: fixed; /* 화면에 고정 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* 반투명 검정 배경 */
+    display: none; /* 초기에는 숨김 */
+    justify-content: center; /* 내부 콘텐츠를 수평 중앙 정렬 */
+    align-items: center; /* 내부 콘텐츠를 수직 중앙 정렬 */
+    z-index: 1000; /* 다른 요소들보다 위에 표시되도록 설정 */
+}
+
+/* 모달의 실제 콘텐츠 */
+.modal-content {
+    background-color: white; /* 모달 내용의 배경색 */
+    padding: 20px; /* 내부 여백 */
+    border-radius: 10px; /* 모서리를 둥글게 */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* 그림자 추가 */
+    max-width: 400px; /* 최대 너비 설정 */
+    width: 100%; /* 모바일에서 화면에 꽉 차도록 설정 */
+    position: fixed; /* 모달을 화면 중앙에 고정 */
+    top: 50%; /* 화면 높이의 50% */
+    left: 50%; /* 화면 너비의 50% */
+    transform: translate(-50%, -50%); /* 모달을 정확히 중앙에 위치시키기 위해 이동 */
+    animation: fadeIn 0.5s ease; /* 서서히 나타나는 애니메이션 */
+}
+
+/* 모달에 포함된 로그인 옵션 스타일 */
+#login-options {
+    display: flex;
+    flex-direction: column; /* 수직으로 정렬 */
+    gap: 10px; /* 각 옵션 사이의 간격 */
+}
+
+/* 로그인 모달 버튼들의 공통 스타일 */
+#login-options button { /* 기존 a 태그에서 button으로 변경 */
+    display: flex; /* 플렉스 박스로 설정하여 내용 중앙 정렬 */
+    align-items: center; /* 수직 중앙 정렬 */
+    justify-content: center; /* 수평 중앙 정렬 */
+    padding: 10px 20px; /* 내부 여백을 동일하게 설정 */
+    border-radius: 5px; /* 모서리를 둥글게 설정 */
+    font-family: 'TextFont', sans-serif;
+    font-size: 16px;
+    text-decoration: none;
+    width: 100%; /* 버튼이 동일한 너비를 가지도록 설정 */
+    box-sizing: border-box; /* 패딩을 포함한 전체 크기를 계산 */
+    height: 50px; /* 버튼의 높이를 동일하게 설정 */
+    border: none; /* 기본 버튼 테두리 제거 */
+    cursor: pointer; /* 마우스를 올렸을 때 포인터로 변경 */
+}
+
+/* 카카오 로그인 버튼 스타일 */
+#kakao-login {
+    background-color: #FEE500;
+    color: #000;
+    justify-content: flex-start; /* 왼쪽 정렬 */
+    padding-left: 15px; /* 이미지와 텍스트 사이에 여백 추가 */
+}
+
+#kakao-login img {
+    height: 80%; /* 이미지 높이를 버튼 높이의 80%로 설정 */
+    margin-right: 10px; /* 이미지와 텍스트 사이의 간격 설정 */
+}
+
+#kakao-login:hover {
+    background-color: #E5C800; /* hover 시 어두운 색으로 변경 */
+}
+
+/* 이메일 로그인 버튼 스타일 */
+#email-login {
+    background-color: #555;
+    color: #fff;
+}
+
+#email-login:hover {
+    background-color: #444; /* hover 시 어두운 색으로 변경 */
+}
+
+/* 모달팝업이 서서히 나타나는 애니메이션 관련 설정 */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}

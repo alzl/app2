@@ -1,0 +1,55 @@
+
+/* 로그인 컨테이너 스타일 */
+.login-container {
+    padding: 30px;
+    width: 100%;
+    max-width: 500px; /* 폼 넓이 조정 */
+    box-sizing: border-box;
+    min-height: 400px; /* 폼 높이 조정 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* 세로 중앙 정렬 */
+    position: relative; /* 에러 메시지 위치 조정을 위해 설정 */
+}
+
+.input-group {
+    margin-bottom: 30px; /* 입력 필드와 에러 메시지 간격 조정 */
+    position: relative; /* 에러 메시지 위치 조정을 위해 설정 */
+}
+
+.input-group input {
+    width: calc(100% - 24px); /* 로그인 버튼과 맞추기 위해 패딩을 고려한 넓이 설정 */
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease;
+}
+
+.input-group input:focus {
+    border-color: #4a3b2c; /* 입력폼 포커스 시 색상 변경 */
+    outline: none;
+}
+
+.error-message {
+    display: none;
+    color: red;
+    font-size: 12px;
+    margin-top: 5px; /* 에러 메시지와 입력 필드 사이의 간격 조정 */
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.checkbox-group input {
+    margin-right: 8px;
+}
+
+.checkbox-group label {
+    font-size: 16px;
+    color: #4a3b2c;
+}

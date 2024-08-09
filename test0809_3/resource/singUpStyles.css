@@ -1,0 +1,38 @@
+.register-container {
+    padding: 30px;
+    width: 100%;
+    max-width: 500px; /* 폼 넓이 조정 */
+    box-sizing: border-box;
+    min-height: 400px; /* 폼 높이 조정 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* 수직 중앙 정렬 */
+}
+
+.input-group {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.input-group input {
+    width: calc(100% - 24px); /* 패딩을 고려한 넓이 설정 */
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease;
+}
+
+.input-group input:focus {
+    border-color: #4a3b2c; /* 입력폼 포커스 시 색상 변경 */
+    outline: none;
+}
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+}
