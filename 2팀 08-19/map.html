@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="resource/mapStyles.css"> <!-- 스타일시트를 링크로 연결 -->
+    <title>MAP</title>
+</head>
+
+<body style="background-color: beige;">
+    <!-- 카카오 맵 API 로드 -->
+    <div class="map_wrap" style="position: relative;">
+        <div id="map">
+
+            <!-- 내 위치 찾기 버튼 -->
+            <button id="my_location_button" onclick="getCurrentPosBtn()">
+                <img class="overlay-image" src="https://i.ibb.co/1RZpNY3/Group-89.png" width="60px" height="60px">
+            </button>
+
+            <button id="home_button" onclick="goHomeBtn()">
+            <img class="overlay-image" src="https://i.ibb.co/KxmKfpX/image.png" width="65px" height="65px">
+            </button>
+
+
+        </div>
+    </div>
+
+
+    
+    
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=27cd33198e684f568c591024de2d3482&libraries=services"></script>
+    <!-- script.js 파일을 링크 -->
+    <script src="resource/mapScript.js"></script>
+</body>
+</html>

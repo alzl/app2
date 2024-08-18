@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../resource/loginStyles.css">
+    <title>로그인</title>
+</head>
+
+<body>
+    <div class="login-container">
+
+        <!-- 전체적인 로그인 폼 입니다. -->
+
+        <!-- login-action.html에는 로그인 하려는 객체가 DB에 저장되어있는지, PW가 일치한지 등에 대해 구현되어야 합니다. -->
+        <form id="loginForm" action="login-action.html" method="post">
+
+            <!-- 아이디(이메일) 입력 영역입니다. -->
+            <div class="input-group">
+                <input type="email" id="email" name="email" placeholder="아이디(이메일)">
+                <!-- 빈 칸으로 폼을 제출 시 에러 메시지가 표시됩니다. -->
+                <span class="error-message" id="emailError">아이디(이메일)를 입력해주세요.</span>
+            </div>
+
+            <!-- 비밀번호 입력 영역입니다. -->
+            <div class="input-group">
+                <input type="password" id="password" name="password" placeholder="비밀번호">
+                <!-- 빈 칸으로 폼을 제출 시 에러 메시지가 표시됩니다. -->
+                <span class="error-message" id="passwordError">비밀번호를 입력해주세요.</span>
+            </div>
+
+            <!-- 로그인 상태를 유지하는 체크박스 입니다. -->
+            <div class="checkbox-group">
+                <input type="checkbox" id="stayLoggedIn">
+                <label for="stayLoggedIn">로그인 상태 유지</label>
+            </div>
+
+            <!-- 로그인 버튼입니다. -->
+            <button id="login" type="submit">로그인</button>
+        </form>
+
+        
+        <!-- 기타 링크들에 대한 footer 영역입니다. -->
+        <div class="footer">
+            <!--
+            <a href="findId.html">아이디 찾기</a> |
+            <a href="findPassword.html">비밀번호 찾기</a> |
+            <a href="/sectionPages/sign-up.html">회원가입</a>
+            -->
+            <button onclick="showSection('findId')">아이디 찾기</button> |
+            <button onclick="showSection('findPassword')">비밀번호 찾기</button> |
+            <button onclick="showSection('sign-up')">회원가입</button>
+        </div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,204 @@
+/* 
+    공지게시판 공지사항 페이지
+*/
+
+/* 페이지의 최소 너비 설정 */
+body {
+    min-width: 320px; /* 최소 너비를 원하는 값으로 설정 */
+    box-sizing: border-box; /* 패딩과 테두리의 크기가 너비와 높이에 포함되도록 설정 */
+}
+
+/* 페이지네이션 스타일 */
+.pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.pagination a {
+    text-decoration: none;
+    color: #4a3b2c;
+    padding: 10px 15px;
+    margin: 0 5px;
+    border: 1px solid #4a3b2c;
+    border-radius: 5px;
+    font-family: 'TextFont', Arial, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+    display: inline-block; /* 인라인 블록으로 요소 간 간격 조정 */
+}
+
+/* 활성화된 페이지 스타일 (호버 제외) */
+.pagination a.active {
+    background-color: #6a4f3b;
+    color: #f5f2e6;
+    pointer-events: none; /* 클릭 불가능 */
+}
+
+/* 비활성화된 페이지 링크에 마우스를 올렸을 때 색상 변경 */
+.pagination a:not(.active):hover {
+    background-color: #d9d0c6; 
+    color: #4a3b2c; /
+}
+
+/* 공지사항 테이블 스타일 설정 */
+.notice-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; /* 테이블 너비가 고정되도록 설정 */
+}
+.notice-table th, .notice-table td {
+    border: 1px solid #4a3b2c;
+    padding: 8px;
+    text-align: center; /* 중앙 정렬 */
+}
+.notice-table th {
+    background-color: #6a4f3b;
+    color: #f5f2e6;
+}
+.notice-table .important {
+    color: red;
+}
+.notice-table .important::before {
+    content: '공지 ';
+    color: red;
+}
+.notice-table th:nth-child(1), .notice-table td:nth-child(1) {
+    width: 3%; /* 빈칸 너비 조정 */
+}
+.notice-table th:nth-child(2), .notice-table td:nth-child(2) {
+    width: 50%; /* 제목 칸 너비 조정 */
+}
+.notice-table th:nth-child(3), .notice-table td:nth-child(3) {
+    width: 15%; /* 작성자 칸 너비 조정 */
+}
+.notice-table th:nth-child(4), .notice-table td:nth-child(4) {
+    width: 15%; /* 작성일 칸 너비 조정 */
+}
+.notice-table th:nth-child(5), .notice-table td:nth-child(5) {
+    width: 10%; /* 조회 칸 너비 조정 */
+}
+.notice-table th:nth-child(6), .notice-table td:nth-child(6) {
+    width: 10%; /* 좋아요 칸 너비 조정 */
+}
+
+/* 공통 버튼 스타일 */
+.button {
+    padding: 10px 20px;
+    background-color: #e0d5c3;
+    color: #4a3b2c;
+    border: none;
+    border-radius: 6px; /* 테두리 둥글게 */
+    font-family: 'TextFont', Arial, sans-serif;
+    cursor: pointer;
+    font-size: 16px; /* 글씨 크기 조정 (선택적) */
+    transition: background-color 0.3s ease; /* 배경색 전환 효과 */
+}
+
+/* 버튼 호버 시 배경색 변경 */
+.button:hover {
+    background-color: #d9d0c6;
+}
+
+/* 검색 버튼 */
+.search-bar input[type="submit"] {
+    background-color: #e0d5c3; 
+    color: #4a3b2c;
+    border: 1px solid #4a3b2c; 
+    font-family: 'TextFont', Arial, sans-serif;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* 검색 버튼 호버 시 배경색 변경 */
+.search-bar input[type="submit"]:hover {
+    background-color: #d9d0c6;
+    color: #4a3b2c; 
+    border: 1px solid #4a3b2c;
+}
+
+/* 검색어 입력 필드 스타일 */
+.search-bar input[type="text"] {
+    padding: 10px;
+    margin-right: 5px; /* 폼 필드와 버튼 사이의 간격 조정 */
+    border: 1px solid #4a3b2c; 
+    border-radius: 5px; /* 테두리 둥글게 설정 */
+}
+
+/* 글쓰기 버튼 */
+.write-button{
+    background-color: #e0d5c3; 
+    color: #4a3b2c;
+    border: 1px solid #4a3b2c;
+    border-radius: 6px; /* 테두리 둥글게 */
+    font-family: 'TextFont', Arial, sans-serif;
+    cursor: pointer;
+    font-size: 16px; /* 글씨 크기 조정 (선택적) */
+    padding: 10px 20px; 
+}
+
+/* 검색 바 스타일 정의 */
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* 폼과 버튼 사이의 간격 조정 */
+    margin-bottom: 20px; /* 테이블 위쪽에 간격 추가 */
+    justify-content: flex-end; /* 오른쪽 정렬 */
+}
+.search-bar form {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* 검색 폼 내부의 간격 조정 */
+    margin: 0; 
+}
+.search-bar input[type="text"], .search-bar select, .search-bar input[type="submit"] {
+    padding: 10px;
+    margin-right: 5px; /* 폼 필드와 버튼 사이의 간격 조정 */
+}
+
+/* 
+    미디어 쿼리
+*/
+
+/* 페이지 크기에 따라 조정 */
+@media (max-width: 768px) {
+    .pagination {
+        margin-top: 15px;
+    }
+
+    .pagination a {
+        padding: 8px 12px;
+        font-size: 14px;
+        margin: 0 4px; /* 버튼 간 간격 줄이기 */
+    }
+
+    .search-bar {
+        flex-direction: column; /* 세로 정렬로 변경 */
+        align-items: stretch; /* 요소들을 가로로 늘이기 */
+        gap: 5px; /* 요소들 사이의 간격 조정 */
+    }
+
+    .search-bar input[type="text"], 
+    .search-bar select, 
+    .search-bar input[type="submit"] {
+        padding: 8px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .pagination {
+        margin-top: 10px;
+    }
+
+    .pagination a {
+        padding: 6px 10px;
+        font-size: 12px;
+        margin: 0 3px; /* 버튼 간 간격 더 줄이기 */
+    }
+
+    .search-bar input[type="text"], 
+    .search-bar select, 
+    .search-bar input[type="submit"] {
+        padding: 6px;
+        font-size: 12px;
+    }
+}
